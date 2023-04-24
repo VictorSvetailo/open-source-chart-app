@@ -1,0 +1,81 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/colors';
+
+
+.button {
+  @include roboto-font;
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px 7px;
+  border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: $mainColorText;
+  transition: .3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  gap: 9px;
+
+  &:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+
+  &_black {
+    background: linear-gradient(153.6deg, #353538 0%, $firstColorButton 100%);
+  }
+
+  &_coral {
+    background: linear-gradient(153.6deg, #fc6c8a 0%, $secondColorButton 100%);
+  }
+
+  &_blue {
+    background: linear-gradient(90.74deg, #55aef1 0%, $thirdColorButton 100%);
+  }
+
+  &_green {
+    background: linear-gradient(90.74deg, #71d0d0 0%, $fourthColorButton 100%);
+  }
+
+  &_disabled {
+    opacity: 0.5;
+
+    &:hover {
+      transform: scale(1);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.button_disabled {
+  opacity: 0.5;
+
+  &:hover {
+    transform: scale(1);
+    cursor: not-allowed;
+  }
+}
+
+@include _800 {
+  .button {
+    font-size: 1.1rem;
+  }
+}
+
+@include _650 {
+  .button {
+    font-size: 1rem;
+  }
+}
+
+
+@include _480 {
+  .button {
+    font-size: 0.8rem;
+  }
+}

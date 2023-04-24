@@ -1,0 +1,64 @@
+@import 'colors';
+
+// Fonts
+@mixin roboto-font {
+  font-family: 'Roboto', serif;
+}
+
+// Pages
+@mixin page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+// Buttons
+@mixin buttons-modes-common {
+  background-size: 200%;
+  border: none;
+  transition: .3s;
+  border-radius: 16px;
+}
+
+// Breakpoints
+@mixin _800 {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin _750 {
+  @media screen and (max-width: 750px) {
+    @content;
+  }
+}
+
+@mixin _650 {
+  @media (max-width: 650px) {
+    @content;
+  }
+}
+
+@mixin _550 {
+  @media (max-width: 550px) {
+    @content;
+  }
+}
+
+@mixin _480 {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin _380 {
+  @media (max-width: 380px) {
+    @content;
+  }
+}
+
+@mixin _350 {
+  @media (max-width: 350px) {
+    @content;
+  }
+}

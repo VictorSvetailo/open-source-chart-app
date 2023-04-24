@@ -1,0 +1,141 @@
+@import "../../assets/styles/mixins";
+@import "../../assets/styles/colors";
+
+.home {
+  padding-top: 50px;
+
+  &__container {
+    @include page-container;
+    background-color: $mainColorBg;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .2);
+    padding: 30px 60px;
+  }
+
+  &__header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .header {
+      &__icon {
+        margin: 0 auto;
+        max-width: 150px;
+        max-height: 150px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &__title {
+        color: $mainDecorTextColor;
+        font-size: 50px;
+        font-weight: 600;
+        margin: 0;
+        @include _800 {
+          font-size: 45px;
+        }
+        @include _650 {
+          font-size: 35px;
+        }
+        @include _480 {
+          font-size: 24px;
+        }
+      }
+
+      &__text {
+        color: $mainDecorTextColor;
+        font-weight: 400;
+        font-size: 20px;
+        @include _800 {
+          font-size: 17px;
+        }
+        @include _650 {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  &__main {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .main {
+      &__text {
+        color: $secondDecorTextColor;
+        font-weight: 400;
+        font-size: 15px;
+      }
+
+      &__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        .buttons{
+          &__btn{
+            width: 100%;
+          }
+        }
+        @include _750 {
+          flex-wrap: wrap;
+          .buttons{
+            &__btn{
+              width: 48%;
+            }
+          }
+        }
+        @include _480 {
+          .buttons{
+            &__btn{
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .footer {
+      &__icon {
+        margin: 0 auto;
+        max-width: 50px;
+        max-height: 50px;
+        filter: grayscale(100%);
+        opacity: 0.2;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &__text {
+        color: $mainDecorTextColor;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.5;
+        @include _800 {
+          font-size: 13px;
+        }
+        @include _650 {
+          font-size: 11px;
+        }
+      }
+      &__link {
+        color: $secondDecorTextColor;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
