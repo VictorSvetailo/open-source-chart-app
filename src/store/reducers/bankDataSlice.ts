@@ -2,17 +2,18 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {AxiosError} from 'axios'
 
 import {api, BankDataType} from '../../api/api'
-import {handleAsyncServerNetworkError} from '../../utils/error-utils'
 
 
-export const fetchBankData = createAsyncThunk('bankData/fetchBankData', async (thunkAPI) => {
+export const fetchBankData = createAsyncThunk('bankData/fetchBankData', async () => {
    try {
       const res = await api.getBankData()
       return res.data
    } catch (err) {
       const error = err as AxiosError
+      console.log(error)
+      return error
       //@ts-ignore
-      return handleAsyncServerNetworkError(error, thunkAPI)
+      // return handleAsyncServerNetworkError(error, thunkAPI)
    }
 })
 const initialState = {
@@ -31,6 +32,7 @@ export const bankDataSlice = createSlice({
          })
          .addCase(fetchBankData.fulfilled, (state, action) => {
             state.statusBankData = 'success'
+            // @ts-ignore
             state.bankData = action.payload
          })
          .addCase(fetchBankData.rejected, state => {

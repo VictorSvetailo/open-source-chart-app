@@ -1,5 +1,6 @@
 import React, {FC} from 'react'
-import PropTypes from 'prop-types'
+
+import './SvgSelector.scss'
 
 interface SvgSelectorType {
    id?: 'arrow-down' | 'right-arrow' | 'arrow-in-round'
@@ -28,7 +29,7 @@ const SvgSelector: React.FC<SvgSelectorType> = ({id = 'logo', svgColor = '#fff',
          )
       case 'arrow-in-round':
          return (
-            <svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <svg className={className} width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
                <path
                   d='M14.7803 28.6445C22.5123 28.6445 28.7803 22.3765 28.7803 14.6445C28.7803 6.91254 22.5123 0.644531 14.7803 0.644531C7.04829 0.644531 0.780273 6.91254 0.780273 14.6445C0.780273 22.3765 7.04829 28.6445 14.7803 28.6445Z'
                   stroke='white' strokeLinecap='round' strokeLinejoin='round' />
