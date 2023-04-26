@@ -1,22 +1,22 @@
 import React, {FC} from 'react'
 
-import {checkRoute} from '../../scripts/layout'
+import {CheckRoute} from '../../scripts/Layout'
 import '../../assets/styles/app.scss'
 
 const AppLayout: FC<AppLayoutType> = ({mode}) => {
 
-   return (
-      <>
-         <div className='app'>
-            {checkRoute(mode)}
-         </div>
-      </>
-   )
+    return (
+        <>
+            <div className={'app'}>
+                {CheckRoute(mode)}
+            </div>
+        </>
+    )
 }
 
 export default AppLayout
 
 
-interface AppLayoutType{
+interface AppLayoutType {
     mode: string
 }

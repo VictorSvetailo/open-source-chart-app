@@ -1,48 +1,41 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+
 import {AxiosError} from 'axios'
 
 import {api, BankDataType} from '../../api/api'
 
+import {handleAsyncServerNetworkError} from '../../utils/error-utils'
 
-export const fetchBankData = createAsyncThunk('bankData/fetchBankData', async () => {
-   try {
-      const res = await api.getBankData()
-      return res.data
-   } catch (err) {
-      const error = err as AxiosError
-      console.log(error)
-      return error
-      //@ts-ignore
-      // return handleAsyncServerNetworkError(error, thunkAPI)
-   }
+import {setAppStatus} from './appSlice'
+
+export const fetchBankData = createAsyncThunk('bankData/fetchBankData', async (param, thunkAPI) => {
+    thunkAPI.dispatch(setAppStatus({status: 'loading'}))
+    try {
+        const res = await api.getBankData()
+        thunkAPI.dispatch(setAppStatus({status: 'success'}))
+        return res.data
+    } catch (err) {
+        const error = err as AxiosError
+        return handleAsyncServerNetworkError(error, thunkAPI)
+    }
 })
 const initialState = {
-   bankData: [] as Array<BankDataType>,
-   statusBankData: 'idle' as RequestStatusType
+    bankData: [] as Array<BankDataType>
 }
 
 export const bankDataSlice = createSlice({
-   name: 'bankData',
-   initialState,
-   reducers: {},
-   extraReducers: (builder) => {
-      builder
-         .addCase(fetchBankData.pending, state => {
-            state.statusBankData = 'loading'
-         })
-         .addCase(fetchBankData.fulfilled, (state, action) => {
-            state.statusBankData = 'success'
-            // @ts-ignore
-            state.bankData = action.payload
-         })
-         .addCase(fetchBankData.rejected, state => {
-            state.statusBankData = 'failed'
-         })
-   }
+    name: 'bankData',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchBankData.fulfilled, (state, action) => {
+                state.bankData = action.payload
+            })
+    }
 })
 
 const {reducer} = bankDataSlice
 export default reducer
 
 
-export type RequestStatusType = 'idle' | 'loading' | 'success' | 'failed'

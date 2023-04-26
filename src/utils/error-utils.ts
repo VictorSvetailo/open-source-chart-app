@@ -1,7 +1,7 @@
 import {setAppError, setAppStatus} from '../store/reducers/appSlice'
 
-export const handleAsyncServerNetworkError = (
-   error: { message: string }, thunkAPI: ThunkAPIType, showError = true) => {
+export const handleAsyncServerNetworkError = (error: { message: string }, thunkAPI: ThunkAPIType, showError = true) => {
+   console.log(error)
    if (showError) {
       thunkAPI.dispatch(setAppError({error: error.message ? error.message : 'Some error occurred'}))
    }

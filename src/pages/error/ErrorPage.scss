@@ -21,20 +21,28 @@
     cursor: text;
     height: 100%;
     gap: 30px;
+    text-align: center;
     .content {
       &__code {
-        padding-right: 20px;
         color: $secondTextColor;
+        @include _750 {
+          font-size: 27px;
+        }
       }
       &__text {
         font-size: 40px;
-        padding-left: 20px;
         font-weight: 700;
         color: $secondTextColor;
+        @include _750 {
+          font-size: 27px;
+        }
+        @include _380 {
+          font-size: 22px;
+        }
       }
-
       &__btn {
-        width: 50%;
+        max-width: 200px;
+        width: 100%;
       }
     }
   }

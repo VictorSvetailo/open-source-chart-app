@@ -1,0 +1,222 @@
+@import "../../assets/styles/mixins";
+@import "../../assets/styles/colors";
+
+.chart {
+  padding: 50px 0;
+  height: 100vh;
+  @include _800 {
+    padding: 30px 0;
+  }
+
+  &__container {
+    @include page-container;
+    background-color: $mainColorBg;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .2);
+    padding: 30px 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 500px;
+    @include _750 {
+      padding: 20px 30px;
+    }
+    @include _380 {
+      padding: 20px 20px;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  gap: 20px;
+  @include _750 {
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    order: 1;
+    max-width: 150px;
+    width: 100%;
+    @include _750 {
+      max-width: 120px;
+      button {
+        padding: 7px 3px;
+      }
+    }
+  }
+
+  &__title {
+    order: 2;
+    font-size: 30px;
+    color: $mainDecorTextColor;
+    font-weight: 700;
+    text-align: center;
+    @include _750 {
+      order: 3;
+      width: 100%;
+    }
+  }
+}
+
+.theme_switch {
+  order: 3;
+  max-width: 150px;
+  width: 100%;
+  @include _750 {
+    order: 2;
+    max-width: 120px;
+  }
+
+  &__body {
+    height: 50px;
+    padding: 10px 0;
+    background: $fourthColorButton;
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    position: relative;
+    @include _750 {
+      height: 44px;
+    }
+
+    .theme_switch__slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 48%;
+      border-radius: 8px;
+      background: $secondColorButton;
+      z-index: 2;
+      transition: 0.3s;
+      margin: 3px;
+
+      &.active {
+        left: 48%;
+        background: $firstColorButton;
+        @include _750 {
+          left: 47%;
+        }
+      }
+    }
+
+    button {
+      background: transparent;
+      z-index: 3;
+      width: 50%;
+      color: $mainColorText;
+    }
+  }
+}
+
+
+// Chart Styles
+.chart__main {
+  margin-top: 30px;
+  min-height: 200px;
+  max-height: 600px;
+  height: 100%;
+
+  .chart__body {
+    position: relative;
+    min-height: 200px;
+    height: 100%;
+  }
+}
+
+// Highcharts Styles
+.highcharts-credits {
+  display: none;
+}
+
+.highcharts-axis-labels {
+  transform: translate(-10px);
+
+  text {
+    font-size: 12px !important;
+    fill: $firstColorButton !important;
+  }
+}
+
+.highcharts-axis {
+  transform: translate(-5px, 0);
+  font-size: 15px;
+  letter-spacing: 1px;
+
+  text {
+    fill: $firstColorButton !important;
+    z-index: 100 !important;
+  }
+}
+
+.highcharts-scrolling-parent {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    bottom: 72px;
+    width: 40px;
+    opacity: 0.9;
+    background-color: $mainColorText;
+    z-index: 1;
+  }
+}
+
+.highcharts-no-tooltip {
+  rect {
+    fill: none;
+  }
+}
+
+.chart__body.active {
+  .highcharts-title {
+    fill: $mainColorText !important;
+  }
+
+  .highcharts-scrolling-parent {
+    &::before {
+      background-color: $firstColorButton;
+    }
+  }
+
+  .highcharts-no-tooltip {
+    path {
+      stroke: $mainColorText !important;
+    }
+  }
+
+  .highcharts-background {
+    fill: $firstColorButton !important;
+    stroke: $firstColorButton !important;
+  }
+
+  .highcharts-legend-item {
+    text {
+      fill: $mainColorText !important;
+    }
+  }
+
+  .highcharts-legend-item-hidden {
+    opacity: 0.5;
+  }
+
+  .highcharts-axis-labels {
+    text {
+      fill: $mainColorText !important;
+    }
+  }
+
+  .highcharts-axis {
+    text {
+      fill: $mainColorText !important;
+    }
+  }
+}
+

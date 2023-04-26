@@ -7,12 +7,11 @@ import {routes} from './utils/constants'
 
 
 function App() {
-
-   return (
-      <Provider store={store}>
-         <RoutesWrapper routes={routes}/>
-      </Provider>
-   )
+    return (
+        <Provider store={store}>
+            <RoutesWrapper routes={routes}/>
+        </Provider>
+    )
 }
 
 export default App

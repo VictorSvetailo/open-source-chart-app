@@ -6,7 +6,7 @@
   @include roboto-font;
   width: 100%;
   border-radius: 8px;
-  padding: 12px 7px;
+  padding: 10px 7px;
   border: none;
   font-style: normal;
   font-weight: 400;
@@ -23,6 +23,7 @@
 
   &:hover {
     transform: scale(1.01);
+    filter: contrast(120%);
     cursor: pointer;
   }
 
@@ -31,35 +32,28 @@
   }
 
   &_coral {
-    background: linear-gradient(153.6deg, #fc6c8a 0%, $secondColorButton 100%);
+    background: linear-gradient(153.6deg, rgba(250, 115, 163, 0.9) 0%, $secondColorButton 100%);
   }
 
   &_blue {
-    background: linear-gradient(90.74deg, #55aef1 0%, $thirdColorButton 100%);
+    background: linear-gradient(90.74deg, rgba(249, 212, 53, 0.9) 0%, $thirdColorButton 100%);
   }
 
   &_green {
-    background: linear-gradient(90.74deg, #71d0d0 0%, $fourthColorButton 100%);
-  }
-
-  &_disabled {
-    opacity: 0.5;
-
-    &:hover {
-      transform: scale(1);
-      cursor: not-allowed;
-    }
+    background: linear-gradient(90.74deg, rgba(76, 219, 196, 0.9) 0%, $fourthColorButton 100%);
   }
 }
 
-.button_disabled {
+.disabled {
   opacity: 0.5;
 
   &:hover {
+    filter: none;
     transform: scale(1);
     cursor: not-allowed;
   }
 }
+
 
 @include _800 {
   .button {

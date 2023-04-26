@@ -1,16 +1,14 @@
 import axios from 'axios'
 
-
 const settings = {
-   baseURL: 'https://644525c8b80f57f581b27efc.mockapi.io/'
+    baseURL: 'https://644525c8b80f57f581b27efc.mockapi.io/'
 }
 const instance = axios.create(settings)
 
-
 export const api = {
-   getBankData() {
-      return instance.get<BankDataType[]>('statistics')
-   }
+    getBankData() {
+        return instance.get<BankDataType[]>('statistics')
+    }
 }
 
 export interface BankDataType {
@@ -32,4 +30,3 @@ export interface BankDataEntityType {
     rosselkhozBank: number
 }
 
-export type FieldErrorType = { error: string, message: string };

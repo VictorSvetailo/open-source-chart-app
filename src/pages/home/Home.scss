@@ -2,7 +2,11 @@
 @import "../../assets/styles/colors";
 
 .home {
-  padding-top: 50px;
+  padding: 50px 0;
+  height: 100vh;
+  @include _800 {
+    padding: 30px 0;
+  }
 
   &__container {
     @include page-home-container;
@@ -75,22 +79,24 @@
         display: flex;
         justify-content: center;
         gap: 10px;
-        .buttons{
-          &__btn{
+
+        .buttons {
+          &__btn {
             width: 100%;
           }
         }
+
         @include _750 {
           flex-wrap: wrap;
-          .buttons{
-            &__btn{
+          .buttons {
+            &__btn {
               width: 48%;
             }
           }
         }
         @include _480 {
-          .buttons{
-            &__btn{
+          .buttons {
+            &__btn {
               width: 100%;
             }
           }
@@ -131,6 +137,7 @@
           font-size: 11px;
         }
       }
+
       &__link {
         color: $secondDecorTextColor;
         text-decoration: underline;

@@ -1,0 +1,39 @@
+@import "mixins";
+
+// Error Handling
+.error_message{
+  position: fixed;
+  bottom: 70px;
+  left: 50%;
+  transform:  scale(1) translate(-50%, 0);
+  background-color: $errorColorBg;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: $mainColorText;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  animation: animate_error_message 2s infinite;
+  @include _480{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 10px;
+  }
+}
+
+// Error animation
+@keyframes animate_error_message {
+  0% {
+    background-color: $errorColorBg;
+    transform: scale(1) translate(-50%, 0);
+  }
+  50% {
+    background-color: #ff2929;
+    transform: scale(1.01) translate(-50%, 0);
+  }
+
+  100% {
+    background-color: $errorColorBg;
+    transform: scale(1) translate(-50%, 0);
+  }
+}
