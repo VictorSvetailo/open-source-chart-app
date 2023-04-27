@@ -3,7 +3,6 @@
 
 #### ***
 ## 📚 Project launch documentation:
-# Project launch documentation:
 ##### // creating an image
 1. docker build . -t chart-app
 ##### // launching an application through a Docker container
